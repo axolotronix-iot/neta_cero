@@ -13,6 +13,9 @@ __pycache__/
 .venv/
 env/
 
+# --- Local sensor data (MVP temp files) ---
+scripts/data/
+
 # --- VS Code & DevContainers ---
 .vscode/
 # Nota: NO ignoramos .devcontainer porque es parte de tu config compartida

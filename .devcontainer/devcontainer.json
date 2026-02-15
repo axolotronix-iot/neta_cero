@@ -2,6 +2,7 @@
   "name": "Neta Cero IoT Dev Environment",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
+  "runServices": ["dev"],
   "workspaceFolder": "/workspace",
   "forwardPorts": [8000],
   "portsAttributes": {

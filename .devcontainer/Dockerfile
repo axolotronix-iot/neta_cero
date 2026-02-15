@@ -33,12 +33,13 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 RUN python3 -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip \
     && /opt/venv/bin/pip install \
-        paho-mqtt \
-        fastapi \
-        uvicorn[standard] \
-        psycopg2-binary \
-        sqlalchemy \
-        alembic
+        paho-mqtt==2.1.0 \
+        aiomqtt==2.5.0 \
+        fastapi==0.129.0 \
+        uvicorn[standard]==0.34.0 \
+        psycopg2-binary==2.9.10 \
+        sqlalchemy==2.0.46 \
+        alembic==1.14.0
 # && /opt/venv/bin/pip install grafanalib
 
 # ----------------------------------------
