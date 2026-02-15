@@ -26,6 +26,8 @@ services:
     working_dir: /workspace
     volumes:
       - ./:/workspace:cached
+    ports:
+      - "18000:8000"
     networks:
       - ax-network
     command: sleep infinity

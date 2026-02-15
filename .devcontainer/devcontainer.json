@@ -3,6 +3,13 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/workspace",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "FastAPI",
+      "onAutoForward": "openBrowser"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -10,7 +17,7 @@
         "ms-python.python"
       ],
       "settings": {
-        "python.pythonPath": "/workspace/venv/bin/python"
+        "python.defaultInterpreterPath": "/workspace/venv/bin/python"
       }
     }
   }

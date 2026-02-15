@@ -32,9 +32,13 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 # ----------------------------------------
 RUN python3 -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip \
-    && /opt/venv/bin/pip install paho-mqtt 
-# Descomenta según necesites otros paquetes:
-# && /opt/venv/bin/pip install fastapi uvicorn[standard] psycopg2-binary sqlalchemy alembic \
+    && /opt/venv/bin/pip install \
+        paho-mqtt \
+        fastapi \
+        uvicorn[standard] \
+        psycopg2-binary \
+        sqlalchemy \
+        alembic
 # && /opt/venv/bin/pip install grafanalib
 
 # ----------------------------------------
