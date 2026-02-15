@@ -1,0 +1,22 @@
+# --- Docker & Persistence ---
+# No queremos subir los datos reales del broker ni sus logs
+infrastructure/mosquitto/data/*
+infrastructure/mosquitto/log/*
+# Pero queremos mantener las carpetas vacías en Git (opcional)
+!infrastructure/mosquitto/data/.gitkeep
+!infrastructure/mosquitto/log/.gitkeep
+
+# --- Python (Scripts) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+
+# --- VS Code & DevContainers ---
+.vscode/
+# Nota: NO ignoramos .devcontainer porque es parte de tu config compartida
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db

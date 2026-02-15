@@ -1,0 +1,47 @@
+#version: "3.9"
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: ax-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ${PWD}/infrastructure/mosquitto/config:/mosquitto/config:ro
+      - ${PWD}/infrastructure/mosquitto/data:/mosquitto/data
+      - ${PWD}/infrastructure/mosquitto/log:/mosquitto/log
+    mem_limit: 512m
+    cpus: 0.50
+    networks:
+      - ax-network
+
+  dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    image: neta_cero-dev:v1.0
+    container_name: ax-devs
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace:cached
+    networks:
+      - ax-network
+    command: sleep infinity
+  
+  wireshark:
+    image: lscr.io/linuxserver/wireshark
+    container_name: ax-wireshark
+    cap_add:
+      - NET_ADMIN
+    network_mode: host
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.50
+
+networks:
+  ax-network:
+    driver: bridge
