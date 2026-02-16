@@ -20,6 +20,10 @@ RUN apt-get update && apt-get install -y \
     htop \
     net-tools \
     iputils-ping \
+    postgresql-client \
+    bash-completion \
+    zsh \
+    fzf \
     && rm -rf /var/lib/apt/lists/*
 
 # ----------------------------------------
@@ -46,13 +50,22 @@ RUN python3 -m venv /opt/venv \
 # Crear directorio de trabajo y usuario no root
 # ----------------------------------------
 WORKDIR /workspace
-RUN useradd -ms /bin/bash vscode \
+RUN useradd -ms /usr/bin/zsh vscode \
     && chown -R vscode:vscode /workspace
-USER vscode
 
-# ----------------------------------------
-# Activar venv por defecto al abrir shell
-ENV PATH="/opt/venv/bin:$PATH"
+# Instalar zsh autosuggestions
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions \
+    /usr/share/zsh-autosuggestions
+
+# Configurar venv automático limpio (sin duplicado)
+RUN echo 'export VIRTUAL_ENV=/opt/venv' >> /home/vscode/.zshrc \
+    && echo 'export PATH="$VIRTUAL_ENV/bin:$PATH"' >> /home/vscode/.zshrc \
+    && echo 'autoload -Uz colors && colors' >> /home/vscode/.zshrc \
+    && echo 'PROMPT="%F{green}(venv)%f %F{blue}%n@%m%f:%F{cyan}%~%f %# "' >> /home/vscode/.zshrc \
+    && echo 'source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /home/vscode/.zshrc \
+    && chown vscode:vscode /home/vscode/.zshrc
+
+USER vscode
 
 # ----------------------------------------
 # Mantener contenedor corriendo

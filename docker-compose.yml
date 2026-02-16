@@ -16,6 +16,23 @@ services:
     cpus: 0.50
     networks:
       - ax-network
+  
+  postgres:
+    image: postgres:16.2
+    container_name: ax-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: iot_db
+      POSTGRES_USER: iot_user
+      POSTGRES_PASSWORD: iot_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    mem_limit: 512m
+    cpus: 0.5
+    ports:
+      - "5432:5432"
+    networks:
+      - ax-network
 
   dev:
     build:
@@ -44,7 +61,8 @@ services:
     restart: unless-stopped
     mem_limit: 512m
     cpus: 0.50
-
+volumes:
+  postgres_data:
 networks:
   ax-network:
     driver: bridge
