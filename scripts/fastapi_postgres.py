@@ -47,7 +47,7 @@ async def lifespan(app: FastAPI):
         print("DB pool terminado")
 
 
-# 👉 Crear app DESPUÉS de definir lifespan
+# Crear app DESPUÉS de definir lifespan
 app = FastAPI(lifespan=lifespan)
 
 
