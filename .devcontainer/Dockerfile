@@ -43,27 +43,19 @@ RUN python3 -m venv /opt/venv \
         uvicorn[standard]==0.34.0 \
         psycopg2-binary==2.9.10 \
         sqlalchemy==2.0.46 \
-        alembic==1.14.0
+        alembic==1.14.0 \
+        asyncpg==0.30.0
 # && /opt/venv/bin/pip install grafanalib
 
 # ----------------------------------------
-# Crear directorio de trabajo y usuario no root
+# Usuario y Directorio
 # ----------------------------------------
 WORKDIR /workspace
-RUN useradd -ms /usr/bin/zsh vscode \
-    && chown -R vscode:vscode /workspace
+RUN useradd -ms /bin/bash vscode && chown -R vscode:vscode /workspace
 
-# Instalar zsh autosuggestions
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions \
-    /usr/share/zsh-autosuggestions
-
-# Configurar venv automático limpio (sin duplicado)
-RUN echo 'export VIRTUAL_ENV=/opt/venv' >> /home/vscode/.zshrc \
-    && echo 'export PATH="$VIRTUAL_ENV/bin:$PATH"' >> /home/vscode/.zshrc \
-    && echo 'autoload -Uz colors && colors' >> /home/vscode/.zshrc \
-    && echo 'PROMPT="%F{green}(venv)%f %F{blue}%n@%m%f:%F{cyan}%~%f %# "' >> /home/vscode/.zshrc \
-    && echo 'source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /home/vscode/.zshrc \
-    && chown vscode:vscode /home/vscode/.zshrc
+# El venv se activa para todo el sistema (incluyendo VS Code) aquí:
+ENV VIRTUAL_ENV=/opt/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 USER vscode
 
