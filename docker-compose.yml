@@ -33,6 +33,22 @@ services:
       - "5432:5432"
     networks:
       - ax-network
+      
+  grafana:
+    image: grafana/grafana-oss:11.5.1
+    container_name: ax-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - ax-network
+    mem_limit: 512m
+    cpus: 0.50
 
   dev:
     build:
@@ -63,6 +79,7 @@ services:
     cpus: 0.50
 volumes:
   postgres_data:
+  grafana_data:
 networks:
   ax-network:
     driver: bridge
