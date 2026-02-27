@@ -18,7 +18,10 @@
         "ms-python.python"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/workspace/venv/bin/python"
+        "python.defaultInterpreterPath": "/opt/venv/bin/python",
+        "python.terminal.activateEnvInCurrentTerminal": false,
+        "remote.restoreForwardedPorts": false,
+        "remote.autoForwardPorts": false
       }
     }
   }

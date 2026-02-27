@@ -5,7 +5,7 @@ import time
 from aiomqtt import Client
 
 BROKER = "ax-mosquitto"
-TOPIC = "sensors/temperature/device001"
+TOPIC = "sensor/temperature/device001"
 
 async def main():
     async with Client(BROKER) as client:
