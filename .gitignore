@@ -14,7 +14,7 @@ __pycache__/
 env/
 
 # --- Local sensor data (MVP temp files) ---
-scripts/data/
+dev/data/
 
 # --- VS Code & DevContainers ---
 .vscode/
