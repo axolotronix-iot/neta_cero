@@ -7,7 +7,7 @@ infrastructure/mosquitto/log/*
 !infrastructure/mosquitto/log/.gitkeep
 
 # --- Python (Scripts) ---
-__pycache__/
+**__pycache__/
 *.py[cod]
 *$py.class
 .venv/

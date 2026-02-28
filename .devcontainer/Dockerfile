@@ -44,7 +44,9 @@ RUN python3 -m venv /opt/venv \
         psycopg2-binary==2.9.10 \
         sqlalchemy==2.0.46 \
         alembic==1.14.0 \
-        asyncpg==0.30.0
+        asyncpg==0.30.0 \
+        pydantic==2.10.0 \
+        pydantic-settings==2.7.0
 # && /opt/venv/bin/pip install grafanalib
 
 # ----------------------------------------

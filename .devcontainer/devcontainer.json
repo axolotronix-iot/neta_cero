@@ -19,7 +19,6 @@
       ],
       "settings": {
         "python.defaultInterpreterPath": "/opt/venv/bin/python",
-        "python.terminal.activateEnvInCurrentTerminal": false,
         "remote.restoreForwardedPorts": false,
         "remote.autoForwardPorts": false
       }

@@ -49,7 +49,6 @@ services:
       - ax-network
     mem_limit: 512m
     cpus: 0.5
-       
       
   grafana:
     image: grafana/grafana-oss:11.5.1
@@ -74,6 +73,8 @@ services:
     profiles: ["dev"]
     image: neta_cero-dev:v1.0
     container_name: ax-devs
+    env_file:
+      - .env
     working_dir: /workspace
     volumes:
       - ./:/workspace:cached
