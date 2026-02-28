@@ -1,9 +1,18 @@
-import time
-from ingestor.config import Settings
+import asyncio
+from ingestor import MQTTIngestor
 
-print("Ingestor iniciado correctamente")
-print("Base de datos en:", Settings.DATABASE_URL)
+async def main():
+    ingestor = MQTTIngestor()
+    try:
+        await ingestor.init_db()
+        await ingestor.run()
+    except Exception as e:
+        print(f"Error fatal: {e}")
+    finally:
+        await ingestor.close_db()
 
-while True:
-    time.sleep(10)
-    print("Ingestor sigue vivo...")
+if __name__=="__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
