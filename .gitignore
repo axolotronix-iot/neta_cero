@@ -20,6 +20,9 @@ dev/data/
 .vscode/
 # Nota: NO ignoramos .devcontainer porque es parte de tu config compartida
 
+# No incluimos las variables de entorno por seguridad
+.env
+
 # --- OS Files ---
 .DS_Store
 Thumbs.db

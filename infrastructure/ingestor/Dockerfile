@@ -23,8 +23,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el resto del código fuente al contenedor.
-COPY app/ .
+COPY src/ingestor ./ingestor
 
 # Comando por defecto al arrancar el contenedor.
 # Ejecuta tu aplicación principal.
-CMD ["python", "main.py"]
+CMD ["python", "-m", "ingestor.main"]

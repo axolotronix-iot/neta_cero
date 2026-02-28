@@ -43,11 +43,8 @@ services:
     depends_on:
       - postgres
       - mosquitto
-    environment:
-      MQTT_BROKER: mosquitto
-      MQTT_PORT: 1883
-      MQTT_TOPIC: sensor/#
-      DATABASE_URL: postgresql://iot_user:iot_password@postgres:5432/iot_db
+    env_file:
+      - .env
     networks:
       - ax-network
     mem_limit: 512m
