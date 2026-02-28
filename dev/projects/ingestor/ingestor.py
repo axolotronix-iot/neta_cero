@@ -4,7 +4,7 @@ import json
 import time
 from datetime import datetime, timezone
 from aiomqtt import Client
-from env_manager import settings
+from config import settings
 
 
 class MQTTIngestor:

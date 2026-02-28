@@ -1,4 +1,4 @@
-from env_manager import settings
+from config import settings
 
 try:
     print(f"Conectando a MQTT en: {settings.mqtt_broker}:{settings.mqtt_port}")
