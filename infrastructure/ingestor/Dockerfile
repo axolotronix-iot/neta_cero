@@ -11,7 +11,7 @@ ENV PYTHONUNBUFFERED=1
 
 # Define el directorio de trabajo dentro del contenedor.
 # Todos los comandos siguientes se ejecutarán desde /app.
-WORKDIR /app
+WORKDIR /app/ingestor
 
 # Copia únicamente el archivo de dependencias primero.
 # Esto permite aprovechar el cache de Docker si el código cambia
@@ -23,8 +23,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el resto del código fuente al contenedor.
-COPY src/ingestor ./ingestor
+COPY src/ingestor/ .
 
 # Comando por defecto al arrancar el contenedor.
 # Ejecuta tu aplicación principal.
-CMD ["python", "-m", "ingestor.main"]
+CMD ["python", "main.py"]
