@@ -6,6 +6,9 @@ infrastructure/mosquitto/log/*
 !infrastructure/mosquitto/data/.gitkeep
 !infrastructure/mosquitto/log/.gitkeep
 
+# --- Node (modules) ---
+node_modules
+
 # --- Python (Scripts) ---
 **__pycache__/
 *.py[cod]

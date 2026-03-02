@@ -46,7 +46,9 @@ RUN python3 -m venv /opt/venv \
         alembic==1.14.0 \
         asyncpg==0.30.0 \
         pydantic==2.10.0 \
-        pydantic-settings==2.7.0
+        pydantic-settings==2.7.0 \
+        jinja2==3.1.6 \
+        python-multipart==0.0.9
 # && /opt/venv/bin/pip install grafanalib
 
 # ----------------------------------------

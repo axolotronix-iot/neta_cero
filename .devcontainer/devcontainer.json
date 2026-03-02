@@ -15,10 +15,10 @@
     "vscode": {
       "extensions": [
         "ms-azuretools.vscode-docker",
-        "ms-python.python"
+        "ms-python.python",
+        "ms-ossdata.vscode-pgsql"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/opt/venv/bin/python",
         "remote.restoreForwardedPorts": false,
         "remote.autoForwardPorts": false
       }

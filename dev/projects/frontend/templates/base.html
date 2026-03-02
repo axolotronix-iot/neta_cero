@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-gray-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body class="h-full flex flex-col font-sans text-gray-800">
+
+    <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+        <span class="font-semibold text-lg">Neta Cero</span>
+        <a href="/" class="text-sm text-blue-600 hover:text-blue-800">Inicio</a>
+    </nav>
+
+    <main class="flex-1 flex items-center justify-center p-6">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-white text-center text-sm text-gray-500 py-4 border-t">
+        &copy; 2026 AxolotroniX IoT
+    </footer>
+
+</body>
+</html>

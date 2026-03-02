@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-violet-700 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Neta Cero</h1>
+            <div class="text-sm">
+                Bienvenido, <span class="font-bold">{{ usuario }}</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <section class="bg-white rounded-2xl shadow-lg p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                Panel de Control
+            </h2>
+            
+            <p class="text-gray-600 mb-8">
+                Gestiona tus dispositivos IoT, monitorea métricas y administra tu sistema de manera centralizada.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-md transition">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">
+                        Dispositivos
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Consulta el estado y configuración de tus equipos conectados.
+                    </p>
+                    <button class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition">
+                        Ver dispositivos
+                    </button>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-md transition">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">
+                        Métricas
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Visualiza datos en tiempo real y reportes históricos.
+                    </p>
+                    <button class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition">
+                        Ver métricas
+                    </button>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow hover:shadow-md transition">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">
+                        Configuración
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Administra usuarios y parámetros del sistema.
+                    </p>
+                    <button class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition">
+                        Ajustes
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
