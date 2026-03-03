@@ -1,1 +1,6 @@
 DROP TABLE IF EXISTS sensor_data;
+DROP TABLE IF EXISTS organizations;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS devices;
+DROP TABLE IF EXISTS metrics;
+DROP TABLE IF EXISTS telemetry;
